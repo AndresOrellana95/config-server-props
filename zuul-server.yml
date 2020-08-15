@@ -2,18 +2,19 @@ server:
   port: 8890
   
 zuul:
-  ignoredServices: '*'
-  host:
-    connect-timeout-millis: 20000
-    socket-timeout-millis: 20000
-    routes:
-      sample-service:
-        path: /sample/**
-        url: sample-service
-        stripPrefix: false
-        sensitiveHeaders:
+  routes:
+    pogo-service:
+      path: /pogo-client/**
+      serviceId: pogo-client
+      stripPrefix: false
+    facade-service:
+      path: /facade-client/**
+      serviceId: facade-client
+      stripPrefix: false
 
 eureka:
   client:
+    register-with-eureka: true
+    fetch-registry: true
     serviceUrl:
       defaultZone: http://localhost:8889/eureka/
