@@ -1,0 +1,27 @@
+server:
+  port: 8086
+  servlet:
+    contextPath: /facade-client
+
+NamesApi:
+  service:
+    name: NamesApi
+    url: https://api.genderize.io
+
+JsonPlhldr:
+  service:
+    name: JsonPlaceHolder 
+    url: https://jsonplaceholder.typicode.com
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8889/eureka/
